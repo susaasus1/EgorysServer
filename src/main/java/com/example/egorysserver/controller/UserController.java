@@ -21,6 +21,9 @@ public class UserController {
     UserService userService;
     @Autowired
     UserInfoService userInfoService;
+    @Autowired
+    MusicService musicService;
+
 
     @RequestMapping(value = "/getUserTable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
@@ -35,6 +38,12 @@ public class UserController {
 
     @RequestMapping(value = "/getUserInfoTable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllUserInfo() {
+        List<UserInfo> userInfos = userInfoService.findAll();
+        return ResponseEntity.ok().body(userInfos);
+    }
+
+    @RequestMapping(value = "/getMusicTable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getAllMusic() {
         List<UserInfo> userInfos = userInfoService.findAll();
         return ResponseEntity.ok().body(userInfos);
     }
