@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
+
 @Table(name = "user_info")
 public class UserInfo {
     @Id
@@ -23,5 +23,11 @@ public class UserInfo {
     @Column
     private String work;
     public UserInfo() {
+    }
+
+    public UserInfo(String education, String hometown, String work) {
+        this.education = education;
+        this.hometown = hometown;
+        this.work = work;
     }
 }

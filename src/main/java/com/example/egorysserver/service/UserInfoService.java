@@ -17,4 +17,7 @@ public class UserInfoService {
     public List<UserInfo> findAll() {
         return userInfoEntityRepo.findAll();
     }
+    public void save(UserInfo userInfo){
+        userInfoEntityRepo.save(userInfo);
+    }
 }

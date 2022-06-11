@@ -46,9 +46,13 @@ public class UserController {
     @Autowired
     FollowerService followerService;
 
-    @PostMapping
-    public
-
+    @PostMapping("/addUserInfo")
+    public ResponseEntity<?> addUserInfo(@RequestBody UserInfo userInfo) {
+        System.out.println(userInfo.toString());
+        UserInfo userInfo1 = new UserInfo(userInfo.getEducation(),userInfo.getHometown(),userInfo.getWork());
+        userInfoService.save(userInfo1);
+        return ResponseEntity.ok().body("Ok");
+    }
 
 
     @RequestMapping(value = "/getUserTable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -168,13 +172,14 @@ public class UserController {
         }
         return contentDTOS;
     }
+
     @RequestMapping(value = "/getVideoTable", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
     List<VideoDTO> getVideo() {
         List<Video> contents = videoService.findAll();
         List<VideoDTO> contentDTOS = new ArrayList<>();
         for (Video i : contents) {
-            contentDTOS.add(new VideoDTO(i.getDuration_minutes(),i.getShort_description(),i.getVideo_id(),i.getGenre(),i.getVideo_name(),i.getContent().getContent_id()));
+            contentDTOS.add(new VideoDTO(i.getDuration_minutes(), i.getShort_description(), i.getVideo_id(), i.getGenre(), i.getVideo_name(), i.getContent().getContent_id()));
         }
         return contentDTOS;
     }
