@@ -12,7 +12,7 @@ public class MusicService {
     @Autowired
     private MusicRepo musicRepo;
 
-    public List<Music> getMusic(){
+    public List<Music> findAll() {
         return musicRepo.findAll();
     }
 

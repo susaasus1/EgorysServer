@@ -22,4 +22,8 @@ public class Author {
 
     @Column
     private String a_nickname;
+
+    @ManyToOne
+    @JoinColumn(name = "uid", nullable = false)
+    private User user;
 }

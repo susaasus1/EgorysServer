@@ -2,33 +2,32 @@ package com.example.egorysserver.entity;
 
 
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "user_playlist")
 public class UserPlaylist {
-    @Id
-    @ManyToOne(optional = false)
+
+    @EmbeddedId
+    UserPlaylistKey id;
+
+    @ManyToMany
+    @MapsId("uid")
     @JoinColumn(name = "uid", nullable = false)
-    private User uid;
+    private List<User> uid;
 
-    @ManyToOne(optional = false)
+    @ManyToMany
+    @MapsId("music_id")
     @JoinColumn(name = "music_id", nullable = false)
-    private Music music;
+    private List<Music> music_id;
 
-    public Music getMusic() {
-        return music;
-    }
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public User getUid() {
-        return uid;
-    }
-
-    public void setUid(User uid) {
-        this.uid = uid;
+    public UserPlaylist() {
     }
 }

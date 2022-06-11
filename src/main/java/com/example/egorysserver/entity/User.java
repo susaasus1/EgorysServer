@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -29,17 +32,12 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "info_id", referencedColumnName = "info_id")
     private UserInfo userInfo;
+//    @OneToMany(mappedBy = "author_id")
+//    private List<Author> authors;
 
     public User() {
-    }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinTable(name = "user_playlist",
-            joinColumns =
-                    {@JoinColumn(name = "uid", referencedColumnName = "uid")},
-            inverseJoinColumns =
-                    {@JoinColumn(name = "music_id", referencedColumnName = "music_id")})
-    private Music music;
+    }
 
     @Override
     public String toString() {

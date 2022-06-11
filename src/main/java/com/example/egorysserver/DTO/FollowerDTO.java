@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
-public class UserPlaylistDTO implements Serializable {
+public class FollowerDTO implements Serializable {
     private Integer uid;
-    private Integer music_id;
+    private Integer author_id;
 }

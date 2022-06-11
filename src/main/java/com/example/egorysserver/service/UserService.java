@@ -13,7 +13,6 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserRepo userEntityRepo;
-
     public List<User> findAll() {
         return userEntityRepo.findAll();
     }

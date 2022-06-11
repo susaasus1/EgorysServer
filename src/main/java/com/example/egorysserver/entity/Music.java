@@ -1,16 +1,14 @@
 package com.example.egorysserver.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "music")
 public class Music {
     @Id
     @Column(name = "music_id", nullable = false)
-    private Integer id;
+    private Integer music_id;
+
 
     @Column(name = "name", nullable = false, length = 30)
     private String name;
@@ -20,6 +18,7 @@ public class Music {
 
     @Column(name = "artist", nullable = false, length = 30)
     private String artist;
+
 
     public String getArtist() {
         return artist;
@@ -45,11 +44,11 @@ public class Music {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getMusic_id() {
+        return music_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setMusic_id(Integer id) {
+        this.music_id = id;
     }
 }

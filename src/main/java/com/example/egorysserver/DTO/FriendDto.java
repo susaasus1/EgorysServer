@@ -1,13 +1,15 @@
 package com.example.egorysserver.DTO;
 
+import com.example.egorysserver.entity.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class UserPlaylistDTO implements Serializable {
+public class FriendDto implements Serializable {
     private Integer uid;
-    private Integer music_id;
+    private Integer uidFriend;
 }

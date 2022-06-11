@@ -10,21 +10,17 @@ import javax.persistence.*;
 @Setter
 @Entity
 @AllArgsConstructor
-@Table(name = "video")
-public class Video {
+@Table(name = "text_post")
+public class TextPost {
     @Column
-    private Integer duration_minutes;
-    @Column
-    private String short_description;
+    private Integer symbol_number;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer video_id;
+    private Integer text_post_id;
     @Column
-    private String genre;
-    @Column
-    private String video_name;
+    private String post_name;
 
-    public Video() {
+    public TextPost() {
     }
 
     @OneToOne(cascade = CascadeType.ALL)
